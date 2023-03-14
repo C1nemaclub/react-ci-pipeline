@@ -1,9 +1,9 @@
-import { useState } from "react";
-import "./App.css";
+import { useState } from 'react';
+import './App.css';
 
 export default function App() {
   const [authenticated, setAuthenticated] = useState(false);
-  const [todoInput, setTodoInput] = useState("");
+  const [todoInput, setTodoInput] = useState('');
   const [todos, setTodos] = useState([]);
 
   const onSubmit = async (e) => {
@@ -20,7 +20,7 @@ export default function App() {
       ]);
     }, 500);
 
-    setTodoInput("");
+    setTodoInput('');
   };
 
   const toggleTodo = (id) => {
@@ -36,8 +36,8 @@ export default function App() {
     <>
       {!authenticated && (
         <>
-          <h1>Login</h1>
-          <button type="button" onClick={() => setAuthenticated(true)}>
+          <h1>User Login</h1>
+          <button type='button' onClick={() => setAuthenticated(true)}>
             Click here to login
           </button>
         </>
@@ -47,16 +47,16 @@ export default function App() {
         <>
           <h1>Add Todo</h1>
           <form onSubmit={onSubmit}>
-            <label htmlFor="title">Title</label>
+            <label htmlFor='title'>Title</label>
             <br />
             <input
-              type="text"
-              id="title"
+              type='text'
+              id='title'
               value={todoInput}
               onChange={(e) => setTodoInput(e.target.value)}
             />
             <br />
-            <button type="submit">Submit</button>
+            <button type='submit'>Submit</button>
           </form>
 
           <ul>
@@ -65,18 +65,18 @@ export default function App() {
               return (
                 <li key={id} data-cy={`todo-${title}`}>
                   <label
-                    className={selected ? "todoText" : null}
+                    className={selected ? 'todoText' : null}
                     htmlFor={`todoToggle${id}`}
                   >
                     {title}
                   </label>
                   <input
-                    type="checkbox"
+                    type='checkbox'
                     selected={selected}
                     id={`todoToggle${id}`}
                     onChange={() => toggleTodo(id)}
                   />
-                  <button type="button" onClick={() => deleteTodo(id)}>
+                  <button type='button' onClick={() => deleteTodo(id)}>
                     Remove
                   </button>
                   <br />
